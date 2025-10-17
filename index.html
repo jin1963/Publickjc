@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KJC — Packages • Referral • Auto-Stake</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- web3 -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.4/dist/web3.min.js"></script>
+  <!-- คอนฟิกของคุณ -->
+  <script src="config.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🎁 KJC Packages • Referral • Auto-Stake</h1>
+
+    <div class="topbar">
+      <button id="btnConnect">เชื่อมต่อกระเป๋า</button>
+      <span id="wallet" class="mono">❌ ยังไม่เชื่อมต่อ</span>
+      <div class="muted">Contract: <span id="ca" class="mono">-</span></div>
+      <div class="muted">สถานะระบบ: <b id="sysState">—</b></div>
+    </div>
+
+    <!-- Referrer -->
+    <section class="card">
+      <h2>👥 ผู้ผ่านแนะนำ (Referrer)</h2>
+      <div class="row">
+        <input id="refInput" placeholder="ใส่ Address ผู้อ้างอิง (0x…)" />
+        <button id="btnLockRef">บันทึก Referrer</button>
+      </div>
+      <p class="muted">* ระบบจะจำ Referrer ครั้งแรกไว้อัตโนมัติ</p>
+    </section>
+
+    <!-- My referral link -->
+    <section class="card">
+      <h2>🔗 ลิงก์แนะนำของคุณ</h2>
+      <div class="row">
+        <input id="myRefLink" class="mono" readonly value="(เชื่อมต่อเพื่อสร้างลิงก์)">
+        <button id="btnCopyMyRef">คัดลอกลิงก์</button>
+      </div>
+      <small class="muted">หากกดคัดลอกไม่ได้บนบางมือถือ ให้แตะที่ช่องแล้วคัดลอกด้วยมือ</small>
+    </section>
+
+    <!-- Packages -->
+    <section class="card">
+      <h2>📦 แพ็กเกจที่เปิดขาย</h2>
+      <div id="pkgWrap">กำลังโหลดแพ็กเกจ…</div>
+    </section>
+
+    <!-- Referral rewards -->
+    <section class="card">
+      <h2>💰 รางวัลอ้างอิง (USDT)</h2>
+      <div class="row">
+        <div>สะสม: <b id="refUsdt" class="mono">-</b></div>
+        <div class="muted">เคลมได้อีก: <span id="refCountdown">-</span></div>
+        <button id="btnClaimRef">เคลม</button>
+      </div>
+      <p class="muted">ชั้นที่ 1/2/3: <span id="refBps">-</span> (จ่ายเป็น USDT, เคลมทุก x วัน)</p>
+    </section>
+
+    <!-- Stakes -->
+    <section class="card">
+      <h2>📈 รายการ Stake ของคุณ</h2>
+      <div id="totals" class="muted">รวม Principal: 0 • รอเคลม: 0</div>
+      <div id="stakes">ยังไม่มีรายการ</div>
+    </section>
+
+    <!-- Toast -->
+    <div id="toast" class="toast" style="display:none"></div>
+  </div>
+
+  <script src="public.js"></script>
+</body>
+</html>
