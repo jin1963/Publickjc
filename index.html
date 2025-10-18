@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KJC Referral & Auto Stake</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.4/dist/web3.min.js"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🎁 KJC Referral & Auto Stake</h1>
+
+    <div class="section">
+      <button id="connectBtn">🔗 เชื่อมต่อกระเป๋า</button>
+      <p id="walletAddr">❌ ยังไม่เชื่อมต่อ</p>
+      <small>Contract: <span id="contractAddr">-</span></small>
+    </div>
+
+    <hr>
+
+    <section>
+      <h2>👥 ผู้อ้างอิง (Referrer)</h2>
+      <input type="text" id="referrerInput" placeholder="กรอก Address ผู้นำแนะนำ">
+      <button id="btnSetRef">📌 บันทึก Referrer</button>
+      <p class="hint">* ระบบจะจำผู้อ้างอิงครั้งแรกไว้ถาวร</p>
+    </section>
+
+    <section>
+      <h2>🔗 ลิงก์แนะนำของคุณ</h2>
+      <input type="text" id="refLink" readonly value="-">
+      <button id="copyRefLink">📋 คัดลอกลิงก์</button>
+    </section>
+
+    <section>
+      <h2>💰 ยอดรางวัลอ้างอิง</h2>
+      <p>ยอดสะสม: <span id="refReward">-</span> USDT</p>
+      <button id="claimRefBtn">💸 เคลมรางวัล</button>
+    </section>
+
+    <section>
+      <h2>📈 ข้อมูล Stake ของคุณ</h2>
+      <p>ยอด Stake: <span id="stakeAmount">-</span> KJC</p>
+      <p>รางวัลที่รอเคลม: <span id="stakeReward">-</span> KJC</p>
+      <button id="claimStakeBtn">🏆 เคลมรางวัล Stake</button>
+    </section>
+
+    <div id="toast" class="toast" style="display:none"></div>
+  </div>
+
+  <script src="public.js"></script>
+</body>
+</html>
